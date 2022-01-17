@@ -1,0 +1,9 @@
+Objects             Messages
+--------------------------------
+
+PERSON              
+DOCKING_STATION       release_a_bike              
+
+
+PERSON
+Good_bike            check_if_bike_is _working
