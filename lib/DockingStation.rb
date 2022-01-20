@@ -1,28 +1,34 @@
 require_relative 'Bikes'
 
 class DockingStation 
-  attr_reader :garage
+  
+  DEF_CAPACITY = 20
 
-  def initialize
-    @garage = [] 
+  attr_reader :capacity
+  attr_reader :docked
 
-  end 
+  def initialize(capacity = DEF_CAPACITY)
+    @docked = []
+    @capacity = capacity
+  end
 
   def release_bike
-    Bikes.new 
+    fail 'No bikes available.' if empty?
+    @docked.pop
   end
 
   def dock(bike)
-  @garage << bike
+    fail 'Docking station full.' if full?
+    @docked << bike
+  end
+  
+  private
+  
+  def full?
+    @docked.count >= capacity
   end
 
-  def lists_bikes
-    bikes_available = @garage.count
-    p "There are #{bikes_available} bikes available"
+  def empty?
+    @docked.empty?
   end
 end
-
-# hey = DockingStation.new
-# bike = Bikes.new
-# hey.dock(bike)
-# hey.lists_bikes

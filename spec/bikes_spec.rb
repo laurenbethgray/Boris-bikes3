@@ -1,7 +1,7 @@
-require './lib/Bikes.rb'
-describe Bikes do
-  it 'asks if bike is working' do
-    bike = Bikes.new
-    bike.working? 
-  end
+require 'DockingStation'
+require 'Bikes'
+
+describe Bike do
+  it { is_expected.to respond_to :working? }
 end
+  
