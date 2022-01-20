@@ -12,7 +12,7 @@ class DockingStation
     @capacity = capacity
   end
 
-  def release_bike
+  def release_bike 
     fail 'No bikes available.' if empty?
     @docked.pop
   end
